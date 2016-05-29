@@ -301,3 +301,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+CatOSBasic.vcxproj.filters
+CatOSBasic.vcxproj
+CatOSBasic.sln
