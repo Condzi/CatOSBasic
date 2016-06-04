@@ -1,0 +1,41 @@
+CatOS Basic 0.1
+(c) 2016 Conrad Kubacki
+
+Hello!
+If you're reading this probably you wanna write
+some software for CatOS Basic. 
+
++x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+
+DOCUMENTATION
++x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+
+			OS::Application
++Description:
+Inherit from it if you wanna make some apps for CatOS Basic.
++Methods:
+virtual int Tick()
+	Called once per loop circuit. Returns 0 if nothing happened, 
+	-1 if exited and 0< if error occured.
+virtual void Update()
+	Called once per loop circuit. You can use it for keyboard events etc.
+	Probably I'll delete it in next version.
++Fields:
+none
++x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+
+			OS::Cat
++Description:
+System core, here are called all apllications. 
++Methods:
+Cat::Cat(OS::Application & appToRun)
+	Every time you launch CatOS Basic you can run one program, like this.
+private void update()
+	Called once per loop circuit. Probably delete it from must-have in application 
+	in next version.
+void Start()
+	Main loop for programs. Here is everything.
++Fields:
+OS::Application* m_application
+	Pointer for application.
+bool m_running
+	Is Cat running.
++x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+x+
+	
