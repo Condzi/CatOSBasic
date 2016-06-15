@@ -53,4 +53,6 @@ void OS::Cat::Start()
 		
 		update();
 	}
+
+	delete returnValue;
 }

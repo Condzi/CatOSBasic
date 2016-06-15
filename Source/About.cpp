@@ -1,7 +1,6 @@
 #include "About.h"
 
 
-
 bool About::loadMessage(const std::string & path)
 {
 	std::fstream * messageFile = new std::fstream;
