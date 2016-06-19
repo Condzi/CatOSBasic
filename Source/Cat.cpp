@@ -7,9 +7,9 @@ void OS::Cat::update()
 		m_application->Update();
 	}
 
-	if (kbhit())
+	if (_kbhit())
 	{
-		if (getch() == 59) //59 - F1
+		if (_getch() == 59) //59 - F1
 		{
 			m_running = false;
 		}
@@ -27,23 +27,25 @@ OS::Cat::~Cat()
 
 void OS::Cat::Start()
 {
-	int * returnValue = new int;
+	short returnValue;
 
 	while (m_running)
 	{
 		if (m_application != nullptr)
 		{
-			*returnValue = m_application->Tick();
+			returnValue = m_application->Tick();
 
-			if (*returnValue != 0)
+			if (returnValue)
 			{
-				if (*returnValue == -1)
+				if (returnValue == -1)
 				{
 					m_application = nullptr;
+					m_running = false;
 				}
-				else if (*returnValue > 0)
+				
+				else if (returnValue > 0)
 				{
-					std::cerr << "\nERROR " << *returnValue << ". Press any key to exit.\n";
+					std::cerr << "\n\tERROR " << returnValue << ". Press any key to exit.\n";
 					std::cin.get();
 					m_running = false;
 				}
@@ -53,6 +55,4 @@ void OS::Cat::Start()
 		
 		update();
 	}
-
-	delete returnValue;
 }

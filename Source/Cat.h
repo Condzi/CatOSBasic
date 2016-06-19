@@ -2,9 +2,10 @@
 	Cat - core of the system.
 */
 #pragma once
-#include "Application.h"
 #include <conio.h>
 #include <iostream>
+
+#include "Application.h"
 
 namespace OS
 {

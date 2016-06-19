@@ -17,6 +17,7 @@ namespace OS
 		virtual int Tick() = 0;
 		///Method called by Cat once per circuit of loop for checking keys etc
 		virtual void Update() = 0;
+
 	};
 }
 

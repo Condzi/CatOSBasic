@@ -1,15 +1,21 @@
 #pragma once
-#include "Application.h"
 #include <string>
 #include <iostream>
 #include <vector>
 #include <fstream>
 
+#include "Application.h"
+
+
 class About :
 	public OS::Application
 {
 private:
-	bool loadMessage(const std::string&);
+	/// Loads message from path
+	/// <param name="path"> message path with .txt at end </param>
+	/// <reutrns> true if loaded </returns>
+	/// <returns> false if not loaded </returns>
+	bool loadMessage(const std::string & path);
 	void writeMessage();
 
 public:
@@ -22,5 +28,6 @@ public:
 private:
 	std::vector<std::string> m_message;
 	bool m_exit;
+
 };
 

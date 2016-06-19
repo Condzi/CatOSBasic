@@ -3,28 +3,24 @@
 
 bool About::loadMessage(const std::string & path)
 {
-	std::fstream * messageFile = new std::fstream;
+	std::ifstream messageFile;
 	std::string tempString;
 
-	messageFile->open(path, std::ios::in);
+	messageFile.open(path, std::ios::in);
 
-	if (!messageFile->good())
+	if (!messageFile.good())
 	{
-		messageFile->close();
-		delete messageFile;
+		messageFile.close();
 
 		return false;
 	}
 
-	while (getline(*messageFile, tempString))
+	while (getline(messageFile, tempString))
 	{
 		m_message.push_back(tempString);
 	}
 
-	messageFile->close();
-	
-	delete messageFile;
-
+	messageFile.close();
 	return true;
 }
 
@@ -53,7 +49,7 @@ int About::Tick()
 		return -1;
 	}
 
-	if (!loadMessage("Data/Hello.txt") && m_message.size() == 0)
+	if (!loadMessage("Data/Hello.txt") || !m_message.size())
 	{
 		return 1;
 	}
